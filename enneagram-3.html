@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>九型人格側寫｜3號・成就者</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#241528; --panel:#2F1F39; --panel-2:#3A2745; --panel-3:#3F2B4B;
+  --ink:#F3E9DE; --dim:#A796AE;
+  --apricot:#F0A15E; --jade:#5FB8A6; --rose:#D4557B;
+  --rule:rgba(243,233,222,.13);
+  --serif:"Noto Serif TC","Songti TC",serif;
+  --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:var(--sans);font-weight:300;font-size:16.5px;line-height:1.85;letter-spacing:.02em}
+.wrap{max-width:700px;margin:0 auto;padding:0 20px 90px}
+svg.ic{width:17px;height:17px;flex:none}
+
+/* hero */
+.hero{padding:52px 0 8px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--dim);margin:0 0 18px}
+h1{font-family:var(--serif);font-weight:900;line-height:1.14;font-size:clamp(38px,11vw,56px);margin:0}
+h1 .num{font-family:var(--mono);font-weight:500;color:var(--apricot)}
+.tagline{font-family:var(--serif);color:var(--dim);font-size:16px;margin:14px 0 0;line-height:1.7}
+
+.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:26px 0 0}
+.chip{background:var(--panel);border-radius:3px;padding:12px 4px;text-align:center}
+.chip b{display:block;font-family:var(--mono);font-size:18px;font-weight:500;line-height:1.2}
+.chip span{display:block;font-size:10.5px;letter-spacing:.12em;color:var(--dim);margin-top:5px}
+.chip.g b{color:var(--jade)} .chip.s b{color:var(--rose)} .chip.a b{color:var(--apricot)}
+
+.figure{margin:26px -6px 0}
+.figure svg{width:100%;height:auto;display:block;overflow:visible}
+.ring{fill:none;stroke:rgba(243,233,222,.2);stroke-width:1}
+.tri,.hex{fill:none;stroke:rgba(243,233,222,.13);stroke-width:1}
+.node circle{fill:var(--ground);stroke:rgba(243,233,222,.28);stroke-width:1.2}
+.node text{font-family:var(--mono);font-size:15px;fill:var(--dim);text-anchor:middle;dominant-baseline:central}
+.node.on circle{fill:var(--apricot);stroke:var(--apricot)}
+.node.on text{fill:var(--ground);font-weight:500}
+.node.g circle{stroke:var(--jade);stroke-width:1.8}.node.g text{fill:var(--jade)}
+.node.s circle{stroke:var(--rose);stroke-width:1.8}.node.s text{fill:var(--rose)}
+.arrow{fill:none;stroke-width:2.2;stroke-linecap:round}
+.arrow.g{stroke:var(--jade)} .arrow.s{stroke:var(--rose)}
+.axis-label{font-family:var(--mono);font-size:12px;letter-spacing:.1em}
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin:14px 0 0;
+  font-family:var(--mono);font-size:11.5px;color:var(--dim)}
+.legend i{display:inline-block;width:18px;height:2px;vertical-align:middle;margin-right:7px}
+.legend .g i{background:var(--jade)} .legend .s i{background:var(--rose)}
+
+/* section heads */
+section{margin-top:58px}
+.label{display:flex;align-items:center;gap:11px;
+  padding-bottom:12px;border-bottom:1px solid var(--rule);margin-bottom:24px}
+.ibox{width:32px;height:32px;flex:none;border:1px solid var(--rule);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;color:var(--apricot)}
+.label .lb{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;color:var(--ink)}
+.label b{margin-left:auto;font-weight:400;font-family:var(--mono);
+  font-size:10px;letter-spacing:.14em;color:rgba(243,233,222,.35)}
+
+h2{font-family:var(--serif);font-weight:600;font-size:25px;line-height:1.45;margin:0 0 14px}
+h3{font-family:var(--serif);font-weight:600;font-size:17.5px;margin:28px 0 10px;
+  display:flex;align-items:center;gap:9px}
+h3 .ic{color:var(--dim)}
+p{margin:0 0 14px}
+strong{font-weight:700;color:#fff}
+em{font-style:normal;color:var(--apricot)}
+.lede{font-family:var(--serif);font-size:19px;line-height:1.75;margin:0 0 20px}
+
+/* cards */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:20px 0}
+.card{background:var(--panel);border-radius:3px;padding:16px 15px}
+.card .k{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);
+  display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.card .v{font-size:14.5px;line-height:1.65}
+.card.wide{grid-column:1/-1}
+@media(max-width:520px){.cards{grid-template-columns:1fr}}
+
+/* chains */
+.chain{font-family:var(--mono);font-size:15px;letter-spacing:.05em;
+  padding:14px 16px;border:1px solid var(--rule);border-radius:3px;margin:0 0 10px;
+  overflow-x:auto;white-space:nowrap}
+.chain .hd{display:flex;align-items:center;gap:8px;font-family:var(--sans);font-size:12px;
+  letter-spacing:.02em;color:var(--dim);margin-bottom:8px;white-space:normal}
+.chain.s{color:var(--rose);border-left:3px solid var(--rose)}
+.chain.g{color:var(--jade);border-left:3px solid var(--jade)}
+.chain.loop{color:var(--ink);border-left:3px solid var(--apricot);font-size:13.5px}
+.chain.loop .hd{color:var(--apricot)}
+
+/* nine grid */
+.ninelegend{display:flex;gap:18px;font-family:var(--mono);font-size:11px;color:var(--dim);margin:4px 0 0}
+.ninelegend b{font-weight:500}
+.ninelegend .cg{color:var(--jade)} .ninelegend .cs{color:var(--rose)}
+.ninegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:16px 0 0}
+.tcard{background:var(--panel);border-radius:3px;padding:13px 6px 11px;text-align:center}
+.tcard.me{background:var(--panel-3);box-shadow:inset 0 0 0 1px var(--apricot)}
+.tcard svg{width:100%;max-width:70px;height:auto;display:block;margin:0 auto 9px}
+.mr{fill:none;stroke:rgba(243,233,222,.16);stroke-width:2}
+.ml{stroke-width:2.6;stroke-linecap:round}
+.ml.g{stroke:var(--jade)} .ml.s{stroke:var(--rose)}
+.md{fill:rgba(243,233,222,.22)}
+.md.on{fill:var(--apricot)} .md.g{fill:var(--jade)} .md.s{fill:var(--rose)}
+.tn{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--dim);margin:0}
+.tn b{color:var(--ink);font-size:14px;font-weight:500;margin-right:2px}
+.tv{font-family:var(--mono);font-size:13px;margin:3px 0 0;letter-spacing:.06em}
+.tv .cg{color:var(--jade)} .tv .cs{color:var(--rose)}
+.tv .sep{color:rgba(243,233,222,.25);margin:0 5px}
+
+/* panels */
+.panel{background:var(--panel);border-radius:3px;padding:22px 20px;margin-bottom:12px;
+  border-left:3px solid var(--rule)}
+.panel.g{border-left-color:var(--jade)} .panel.s{border-left-color:var(--rose)}
+.panel h3{margin-top:0}
+.panel.g h3{color:var(--jade)} .panel.g h3 .ic{color:var(--jade)}
+.panel.s h3{color:var(--rose)} .panel.s h3 .ic{color:var(--rose)}
+.panel p:last-child{margin-bottom:0}
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--rule);margin:20px 0}
+.duo > div{background:var(--panel);padding:20px 18px}
+.duo h4{font-family:var(--mono);font-size:13px;font-weight:500;margin:0 0 10px;
+  color:var(--apricot);display:flex;align-items:center;gap:8px}
+.duo p{margin:0;font-size:14.5px;line-height:1.7}
+@media(max-width:520px){.duo{grid-template-columns:1fr}}
+
+ul.plain{margin:0 0 14px;padding-left:18px}
+ul.plain li{margin-bottom:8px}
+ol.steps{counter-reset:s;list-style:none;margin:0;padding:0}
+ol.steps li{counter-increment:s;position:relative;padding-left:36px;margin-bottom:13px}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:2px;
+  font-family:var(--mono);font-size:12px;color:var(--apricot);
+  border:1px solid var(--rule);width:23px;height:23px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center}
+
+.quiet{color:var(--dim);font-size:14.5px}
+.alert{display:flex;gap:13px;border:1px solid var(--rule);border-left:3px solid var(--rose);
+  background:rgba(212,85,123,.07);border-radius:3px;padding:17px 18px;margin:20px 0}
+.alert .ic{color:var(--rose);margin-top:5px}
+.alert p{margin:0;font-size:15px}
+.wingnote{display:flex;gap:13px;border-left:2px solid var(--apricot);padding:2px 0 2px 15px;margin:20px 0}
+.wingnote .ic{color:var(--apricot);margin-top:5px}
+.wingnote .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;
+  color:var(--apricot);display:block;margin-bottom:5px}
+.wingnote p{margin:0;font-size:15.5px}
+
+.close{margin-top:66px;padding-top:32px;border-top:1px solid var(--rule)}
+.close p{font-family:var(--serif);font-size:20px;line-height:1.75;margin:0}
+.foot{margin-top:24px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  color:rgba(243,233,222,.32);line-height:2}
+
+@media(prefers-reduced-motion:no-preference){
+  .arrow{stroke-dasharray:300;stroke-dashoffset:300;
+    animation:draw 1.1s .5s cubic-bezier(.4,0,.2,1) forwards}
+  .arrow.s{animation-delay:.85s}
+  .fade{opacity:0;animation:rise .8s .15s ease-out forwards}
+  .fade.d2{animation-delay:.3s}.fade.d3{animation-delay:.45s}.fade.d4{animation-delay:.6s}
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.chip.n b{color:var(--ink)}
+.tri{stroke:rgba(243,233,222,.22)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow fade">ENNEAGRAM PROFILE · 九型人格側寫</p>
+  <h1 class="fade d2">成就者<br>的<span class="num">3</span>個面具</h1>
+  <p class="tagline fade d3">第三型 The Achiever ｜ 次高分 1 號<br>成長方向 6 ・ 壓力方向 9</p>
+
+  <div class="chips fade d4">
+    <div class="chip a"><b>3</b><span>本型</span></div>
+    <div class="chip g"><b>6</b><span>正向</span></div>
+    <div class="chip s"><b>9</b><span>負向</span></div>
+    <div class="chip n"><b>1</b><span>次高</span></div>
+    <div class="chip n"><b>2/4</b><span>側翼待定</span></div>
+  </div>
+
+  <div class="figure"><svg viewBox="0 0 400 400" role="img" aria-label="九型人格圖，標示 3 號與成長方向 6、壓力方向 9"><defs><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#5FB8A6"/></marker><marker id="as" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#D4557B"/></marker></defs><circle class="ring" cx="200" cy="200" r="150"/><path class="tri" d="M200.0,50.0 L329.9,275.0 L70.1,275.0 Z"/><path class="hex" d="M296.4,85.1 L251.3,341.0 L347.7,174.0 L103.6,85.1 L148.7,341.0 L52.3,174.0 Z"/><path class="arrow g" d="M307.9,275.0 L94.1,275.0" marker-end="url(#ag)"/><path class="arrow s" d="M318.9,255.9 L212.0,70.8" marker-end="url(#as)"/><g class="node"><circle cx="296.4" cy="85.1" r="15"/><text x="296.4" y="85.1">1</text></g><g class="node"><circle cx="347.7" cy="174.0" r="15"/><text x="347.7" y="174.0">2</text></g><g class="node on"><circle cx="329.9" cy="275.0" r="19"/><text x="329.9" y="275.0">3</text></g><g class="node"><circle cx="251.3" cy="341.0" r="15"/><text x="251.3" y="341.0">4</text></g><g class="node"><circle cx="148.7" cy="341.0" r="15"/><text x="148.7" y="341.0">5</text></g><g class="node g"><circle cx="70.1" cy="275.0" r="17"/><text x="70.1" y="275.0">6</text></g><g class="node"><circle cx="52.3" cy="174.0" r="15"/><text x="52.3" y="174.0">7</text></g><g class="node"><circle cx="103.6" cy="85.1" r="15"/><text x="103.6" y="85.1">8</text></g><g class="node s"><circle cx="200.0" cy="50.0" r="17"/><text x="200.0" y="50.0">9</text></g><text class="axis-label" x="176" y="264" fill="#5FB8A6">成長</text><text class="axis-label" x="278" y="172" fill="#D4557B">壓力</text></svg></div>
+  <div class="legend">
+    <span class="g"><i></i>3 → 6　成長方向</span>
+    <span class="s"><i></i>3 → 9　壓力方向</span>
+  </div>
+</header>
+
+<section>
+  <div class="label"><span class="ibox"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4 13 13l-4.6 2.6L11 11z"/></svg></span><span class="lb">怎麼查</span><b>HOW TO READ</b></div>
+  <h2>正向、負向數字怎麼來的？</h2>
+  <p class="lede">不用再測一次。只要知道自己是幾號，另外兩個數字就固定了——它們是圖上的線畫出來的。</p>
+  <p>圖裡有兩條線：一個三角形，一個六邊形。3 號正好落在<strong>三角形</strong>上，所以你的兩個數字是三角形的另外兩個角：6 和 9。</p>
+
+  <div class="chain s"><span class="hd"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v13"/><path d="M6.5 12.5 12 18l5.5-5.5"/></svg>順著念 = 壓力方向（負向）</span>3 → 9 → 6 → 3　　1 → 4 → 2 → 8 → 5 → 7 → 1</div>
+  <div class="chain g"><span class="hd"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6"/><path d="M6.5 11.5 12 6l5.5 5.5"/></svg>倒著念 = 成長方向（正向）</span>3 → 6 → 9 → 3　　1 → 7 → 5 → 8 → 2 → 4 → 1</div>
+  <p class="quiet">記法：六邊形那串就是 1÷7 的循環小數 <em>0.142857</em>。三角形就是 <em>3、6、9</em>——你在這一條上。</p>
+
+  <h3><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg>九型一覽</h3>
+  <div class="ninelegend">
+    <span><b class="cg">綠</b> 正向・成長</span><span><b class="cs">粉</b> 負向・壓力</span>
+  </div>
+  <div class="ninegrid">
+<div class="tcard"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" class="mr"/><line class="ml g" x1="68.8" y1="23.0" x2="18.2" y2="41.3"/><line class="ml s" x1="73.4" y1="26.8" x2="64.0" y2="79.8"/><circle class="md on" cx="74.4" cy="20.9" r="5.5"/><circle class="md" cx="87.4" cy="43.4" r="4"/><circle class="md" cx="82.9" cy="69.0" r="4"/><circle class="md s" cx="63.0" cy="85.7" r="4"/><circle class="md" cx="37.0" cy="85.7" r="4"/><circle class="md" cx="17.1" cy="69.0" r="4"/><circle class="md g" cx="12.6" cy="43.4" r="4"/><circle class="md" cx="25.6" cy="20.9" r="4"/><circle class="md" cx="50.0" cy="12.0" r="4"/></svg><p class="tn"><b>1</b>號</p><p class="tv"><span class="cg">7</span><span class="sep">/</span><span class="cs">4</span></p></div>
+<div class="tcard"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" class="mr"/><line class="ml g" x1="84.4" y1="48.6" x2="66.0" y2="80.5"/><line class="ml s" x1="81.8" y1="41.3" x2="31.2" y2="23.0"/><circle class="md" cx="74.4" cy="20.9" r="4"/><circle class="md on" cx="87.4" cy="43.4" r="5.5"/><circle class="md" cx="82.9" cy="69.0" r="4"/><circle class="md g" cx="63.0" cy="85.7" r="4"/><circle class="md" cx="37.0" cy="85.7" r="4"/><circle class="md" cx="17.1" cy="69.0" r="4"/><circle class="md" cx="12.6" cy="43.4" r="4"/><circle class="md s" cx="25.6" cy="20.9" r="4"/><circle class="md" cx="50.0" cy="12.0" r="4"/></svg><p class="tn"><b>2</b>號</p><p class="tv"><span class="cg">4</span><span class="sep">/</span><span class="cs">8</span></p></div>
+<div class="tcard me"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" class="mr"/><line class="ml g" x1="76.9" y1="69.0" x2="23.1" y2="69.0"/><line class="ml s" x1="79.9" y1="63.8" x2="53.0" y2="17.2"/><circle class="md" cx="74.4" cy="20.9" r="4"/><circle class="md" cx="87.4" cy="43.4" r="4"/><circle class="md on" cx="82.9" cy="69.0" r="5.5"/><circle class="md" cx="63.0" cy="85.7" r="4"/><circle class="md" cx="37.0" cy="85.7" r="4"/><circle class="md g" cx="17.1" cy="69.0" r="4"/><circle class="md" cx="12.6" cy="43.4" r="4"/><circle class="md" cx="25.6" cy="20.9" r="4"/><circle class="md s" cx="50.0" cy="12.0" r="4"/></svg><p class="tn"><b>3</b>號</p><p class="tv"><span class="cg">6</span><span class="sep">/</span><span class="cs">9</span></p></div>
+<div class="tcard"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" class="mr"/><line class="ml g" x1="64.0" y1="79.8" x2="73.4" y2="26.8"/><line class="ml s" x1="66.0" y1="80.5" x2="84.4" y2="48.6"/><circle class="md g" cx="74.4" cy="20.9" r="4"/><circle class="md s" cx="87.4" cy="43.4" r="4"/><circle class="md" cx="82.9" cy="69.0" r="4"/><circle class="md on" cx="63.0" cy="85.7" r="5.5"/><circle class="md" cx="37.0" cy="85.7" r="4"/><circle class="md" cx="17.1" cy="69.0" r="4"/><circle class="md" cx="12.6" cy="43.4" r="4"/><circle class="md" cx="25.6" cy="20.9" r="4"/><circle class="md" cx="50.0" cy="12.0" r="4"/></svg><p class="tn"><b>4</b>號</p><p class="tv"><span class="cg">1</span><span class="sep">/</span><span class="cs">2</span></p></div>
+<div class="tcard"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" class="mr"/><line class="ml g" x1="36.0" y1="79.8" x2="26.6" y2="26.8"/><line class="ml s" x1="34.0" y1="80.5" x2="15.6" y2="48.6"/><circle class="md" cx="74.4" cy="20.9" r="4"/><circle class="md" cx="87.4" cy="43.4" r="4"/><circle class="md" cx="82.9" cy="69.0" r="4"/><circle class="md" cx="63.0" cy="85.7" r="4"/><circle class="md on" cx="37.0" cy="85.7" r="5.5"/><circle class="md" cx="17.1" cy="69.0" r="4"/><circle class="md s" cx="12.6" cy="43.4" r="4"/><circle class="md g" cx="25.6" cy="20.9" r="4"/><circle class="md" cx="50.0" cy="12.0" r="4"/></svg><p class="tn"><b>5</b>號</p><p class="tv"><span class="cg">8</span><span class="sep">/</span><span class="cs">7</span></p></div>
+<div class="tcard"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" class="mr"/><line class="ml g" x1="20.1" y1="63.8" x2="47.0" y2="17.2"/><line class="ml s" x1="23.1" y1="69.0" x2="76.9" y2="69.0"/><circle class="md" cx="74.4" cy="20.9" r="4"/><circle class="md" cx="87.4" cy="43.4" r="4"/><circle class="md s" cx="82.9" cy="69.0" r="4"/><circle class="md" cx="63.0" cy="85.7" r="4"/><circle class="md" cx="37.0" cy="85.7" r="4"/><circle class="md on" cx="17.1" cy="69.0" r="5.5"/><circle class="md" cx="12.6" cy="43.4" r="4"/><circle class="md" cx="25.6" cy="20.9" r="4"/><circle class="md g" cx="50.0" cy="12.0" r="4"/></svg><p class="tn"><b>6</b>號</p><p class="tv"><span class="cg">9</span><span class="sep">/</span><span class="cs">3</span></p></div>
+<div class="tcard"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" class="mr"/><line class="ml g" x1="15.6" y1="48.6" x2="34.0" y2="80.5"/><line class="ml s" x1="18.2" y1="41.3" x2="68.8" y2="23.0"/><circle class="md s" cx="74.4" cy="20.9" r="4"/><circle class="md" cx="87.4" cy="43.4" r="4"/><circle class="md" cx="82.9" cy="69.0" r="4"/><circle class="md" cx="63.0" cy="85.7" r="4"/><circle class="md g" cx="37.0" cy="85.7" r="4"/><circle class="md" cx="17.1" cy="69.0" r="4"/><circle class="md on" cx="12.6" cy="43.4" r="5.5"/><circle class="md" cx="25.6" cy="20.9" r="4"/><circle class="md" cx="50.0" cy="12.0" r="4"/></svg><p class="tn"><b>7</b>號</p><p class="tv"><span class="cg">5</span><span class="sep">/</span><span class="cs">1</span></p></div>
+<div class="tcard"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" class="mr"/><line class="ml g" x1="31.2" y1="23.0" x2="81.8" y2="41.3"/><line class="ml s" x1="26.6" y1="26.8" x2="36.0" y2="79.8"/><circle class="md" cx="74.4" cy="20.9" r="4"/><circle class="md g" cx="87.4" cy="43.4" r="4"/><circle class="md" cx="82.9" cy="69.0" r="4"/><circle class="md" cx="63.0" cy="85.7" r="4"/><circle class="md s" cx="37.0" cy="85.7" r="4"/><circle class="md" cx="17.1" cy="69.0" r="4"/><circle class="md" cx="12.6" cy="43.4" r="4"/><circle class="md on" cx="25.6" cy="20.9" r="5.5"/><circle class="md" cx="50.0" cy="12.0" r="4"/></svg><p class="tn"><b>8</b>號</p><p class="tv"><span class="cg">2</span><span class="sep">/</span><span class="cs">5</span></p></div>
+<div class="tcard"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="38" class="mr"/><line class="ml g" x1="53.0" y1="17.2" x2="79.9" y2="63.8"/><line class="ml s" x1="47.0" y1="17.2" x2="20.1" y2="63.8"/><circle class="md" cx="74.4" cy="20.9" r="4"/><circle class="md" cx="87.4" cy="43.4" r="4"/><circle class="md g" cx="82.9" cy="69.0" r="4"/><circle class="md" cx="63.0" cy="85.7" r="4"/><circle class="md" cx="37.0" cy="85.7" r="4"/><circle class="md s" cx="17.1" cy="69.0" r="4"/><circle class="md" cx="12.6" cy="43.4" r="4"/><circle class="md" cx="25.6" cy="20.9" r="4"/><circle class="md on" cx="50.0" cy="12.0" r="5.5"/></svg><p class="tn"><b>9</b>號</p><p class="tv"><span class="cg">3</span><span class="sep">/</span><span class="cs">6</span></p></div>
+  </div>
+
+  <h3><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><circle cx="12" cy="16.6" r="1.1" fill="currentColor" stroke="none"/></svg>兩個常見誤會</h3>
+  <div class="cards">
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg>誤會一</p>
+      <p class="v"><strong>不是變成那一型。</strong>你只是暫時借用它的一部分——狀態好借優點，壓力大借缺點。</p></div>
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-8"/><path d="M12 13 5 6"/><path d="M12 13l7-7"/><path d="M5 10V6h4"/><path d="M19 10V6h-4"/></svg>誤會二</p>
+      <p class="v"><strong>不是好壞排名。</strong>正向不代表高級，負向也不是懲罰。它們只是兩個狀態指針。</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="ibox"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg></span><span class="lb">你是誰</span><b>TYPE 3</b></div>
+  <h2>你的基本設定</h2>
+  <div class="cards">
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg>屬於哪一群</p><p class="v">情感中心（「形象」的那一群）——你靠「做到什麼」來確認自己有價值</p></div>
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><circle cx="12" cy="16.6" r="1.1" fill="currentColor" stroke="none"/></svg>最怕什麼</p><p class="v">沒有價值、失敗、沒成績就不被看見</p></div>
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6"/><path d="M6.5 11.5 12 6l5.5 5.5"/></svg>最想要什麼</p><p class="v">被肯定，覺得自己是有份量的</p></div>
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.6-5.7L20 8"/><path d="M20 4.5V8h-3.5"/><path d="M20 12a8 8 0 0 1-13.6 5.7L4 16"/><path d="M4 19.5V16h3.5"/></svg>慣性</p><p class="v">虛榮／自欺 — 久了連自己都相信那個形象</p></div>
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17 19 7"/></svg>解藥</p><p class="v">誠實 — 承認做不到、承認需要人</p></div>
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19c4.5 0 4-5 8-5s3.5-5 8-5"/><circle cx="4" cy="19" r="1.6" fill="currentColor" stroke="none"/><circle cx="20" cy="9" r="1.6" fill="currentColor" stroke="none"/></svg>腦子習慣</p><p class="v">隨時掃描「這裡的成功標準是什麼」，然後達標</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="ibox"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-8"/><path d="M12 13 5 6"/><path d="M12 13l7-7"/><path d="M5 10V6h4"/><path d="M19 10V6h-4"/></svg></span><span class="lb">兩個方向</span><b>6 / 9</b></div>
+  <div class="panel g">
+    <h3><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6"/><path d="M6.5 11.5 12 6l5.5 5.5"/></svg>狀態好 → 借 6 號</h3>
+    <p>從「自己贏」變成「跟人一起贏」。願意合作、願意說「我不確定」、願意承認需要別人。</p>
+    <p>價值感不再掛在成績單上，而是掛在你對人的忠誠與付出。</p>
+  </div>
+  <div class="panel s">
+    <h3><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v13"/><path d="M6.5 12.5 12 18l5.5-5.5"/></svg>壓力大 → 借 9 號的壞面</h3>
+    <p>3 號的壓力反應不是暴走，是<strong>突然斷電</strong>。動力消失、開始拖延、用瑣事和滑手機把時間填掉，人在心不在。</p>
+    <p><strong>訊號：明明很累，卻什麼都沒做，而且不想面對任何一件事。</strong></p>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="ibox"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5l6 7-6 7"/><path d="M14 5l6 7-6 7"/></svg></span><span class="lb">次高分</span><b>TYPE 1</b></div>
+  <h2>1 號分數高，代表什麼？</h2>
+  <p class="lede">先講清楚：1 不是 3 的側翼。3 的側翼只可能是 2 或 4。</p>
+  <p>1 分數高，比較可能是<strong>三元組（tritype）裡的身體中心成分</strong>——也就是除了 3 之外，你身上還有一套「要做對」的驅動力。也可能是環境訓練出來的高標準。不管來源是什麼，效果一樣：</p>
+  <div class="cards">
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><circle cx="12" cy="16.6" r="1.1" fill="currentColor" stroke="none"/></svg>兩個嚴厲的聲音</p>
+      <p class="v">3 說「還不夠好」，1 說「這樣不夠正確」。兩個疊在一起，你幾乎沒有可以休息的時刻。</p></div>
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6"/><path d="M6.5 11.5 12 6l5.5 5.5"/></svg>它給你的好處</p>
+      <p class="v">3 的效率 + 1 的品質 = 你交出來的東西又快又可靠。這是真正的競爭力。</p></div>
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-8"/><path d="M12 13 5 6"/><path d="M12 13l7-7"/><path d="M5 10V6h4"/><path d="M19 10V6h-4"/></svg>內部打架</p>
+      <p class="v">3 想快、想漂亮結案；1 想再修一次。你常在「先出手」和「還沒完美」之間內耗。</p></div>
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="10" height="6" rx="1"/></svg>很難授權</p>
+      <p class="v">別人達不到你的標準，於是你自己扛。扛久了就往 9 掉。</p></div>
+  </div>
+  <div class="alert"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><circle cx="12" cy="16.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+    <p><strong>你的專屬警報：</strong>掉到 9 的時候，1 的聲音不會跟著關機。所以你的低潮是「躺平＋自責」同時發生——<strong>什麼都沒做，卻比忙的時候更累</strong>。這是你最該認得的狀態。</p>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="ibox"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-3 7.3-7 9-4-1.7-7-4.8-7-9V6z"/></svg></span><span class="lb">側翼</span><b>3w2 / 3w4</b></div>
+  <h2>側翼：2 還是 4？</h2>
+  <p>這個測驗還沒定，但兩種 3 號差很多：</p>
+  <div class="duo">
+    <div><h4><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>3w2　魅力型</h4><p>溫暖、外向、討喜。影響力來自人際關係，重視被人喜歡，付出時帶著想被肯定的成分。</p></div>
+    <div><h4><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3" fill="currentColor" stroke="none"/></svg>3w4　專業型</h4><p>內斂、重視作品本身的質感，想要「與眾不同」而不只是「贏」。比較會自我懷疑，也比較能獨處。</p></div>
+  </div>
+  <p class="quiet">你 1 號分數偏高，通常和 <em>3w4</em> 比較搭（在意做對、在意品質、會內省）。但這只是推測，要確認可以問自己：<strong>你比較怕被討厭，還是比較怕變得平庸？</strong>前者偏 2 翼，後者偏 4 翼。</p>
+</section>
+
+<section>
+  <div class="label"><span class="ibox"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="10" height="6" rx="1"/></svg></span><span class="lb">場景一</span><b>WORK</b></div>
+  <h2>工作</h2>
+  <div class="duo">
+    <div><h4><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6"/><path d="M6.5 11.5 12 6l5.5 5.5"/></svg>你強在</h4><p>目標明確、學習快、抓得住遊戲規則，也很會把成果包裝好讓人看見。交給你就會有結果。</p></div>
+    <div><h4><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v13"/><path d="M6.5 12.5 12 18l5.5-5.5"/></svg>你卡在</h4><p>把「成果」當成自己；停不下來；不擅長談失敗；容易變成在扮演一個角色，而不是做事。</p></div>
+  </div>
+  <div class="wingnote"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5l6 7-6 7"/><path d="M14 5l6 7-6 7"/></svg>
+    <div><span class="tag">1 號加成</span>
+    <p>品質高，但<strong>難授權、難結案</strong>。實際做法：明確定義「這件事 80 分就交」，並且真的交出去。</p></div>
+  </div>
+  <h3><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17 19 7"/></svg>怎麼改</h3>
+  <ul class="plain">
+    <li>讓別人參與過程，而不是只看你的成品</li>
+    <li>會議上刻意說一次「我不確定」——這是 6 號的路</li>
+    <li>把「我今天做了什麼」和「我今天是誰」分開記錄</li>
+  </ul>
+</section>
+
+<section>
+  <div class="label"><span class="ibox"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></span><span class="lb">場景二</span><b>LOVE</b></div>
+  <h2>感情</h2>
+  <div class="duo">
+    <div><h4><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6"/><path d="M6.5 11.5 12 6l5.5 5.5"/></svg>你強在</h4><p>可靠、有行動力、會把生活經營好。你的愛是具體的：解決問題、安排好一切、讓對方有面子。</p></div>
+    <div><h4><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v13"/><path d="M6.5 12.5 12 18l5.5-5.5"/></svg>你卡在</h4><p>容易把關係當成一個要經營好的專案，伴侶感覺到的是「被管理」而不是「被愛」。也很難在對方面前示弱。</p></div>
+  </div>
+  <div class="wingnote"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 5l6 7-6 7"/><path d="M14 5l6 7-6 7"/></svg>
+    <div><span class="tag">1 號加成</span>
+    <p>你會不自覺地<strong>糾正對方</strong>——用「這樣比較好」的語氣。對方聽到的是「我不夠好」。</p></div>
+  </div>
+  <div class="alert"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><circle cx="12" cy="16.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+    <p><strong>掉到 9 的樣子：</strong>不是吵架，是<strong>情感抽離</strong>。人還在，回應變短，什麼都說「都可以」。伴侶會覺得你消失了，但你自己只覺得很累。</p>
+  </div>
+  <h3><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17 19 7"/></svg>怎麼改</h3>
+  <ol class="steps">
+    <li>對伴侶講一件你最近的失敗，不加解釋、不加補救方案</li>
+    <li>把「我幫你處理」換成「我陪你」</li>
+    <li>累的時候直接說累，不要撐到斷電才被發現</li>
+  </ol>
+</section>
+
+<section>
+  <div class="label"><span class="ibox"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19c4.5 0 4-5 8-5s3.5-5 8-5"/><circle cx="4" cy="19" r="1.6" fill="currentColor" stroke="none"/><circle cx="20" cy="9" r="1.6" fill="currentColor" stroke="none"/></svg></span><span class="lb">場景三</span><b>LIFE</b></div>
+  <h2>人生</h2>
+  <p class="lede">你的功課只有一件事：<br>把「我做到什麼」跟「我是誰」分開。</p>
+  <p>3 號的慣性叫「自欺」，但它不是愛炫耀。真正的問題是——你把形象做得太好，好到<strong>連自己都相信了</strong>，最後不確定拿掉成績之後還剩下誰。</p>
+  <div class="cards">
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19c4.5 0 4-5 8-5s3.5-5 8-5"/><circle cx="4" cy="19" r="1.6" fill="currentColor" stroke="none"/><circle cx="20" cy="9" r="1.6" fill="currentColor" stroke="none"/></svg>你會遇到的關卡</p>
+      <p class="v">某次達標之後，你發現心裡沒有想像中的快樂。那一刻不是失敗，是功課準時到了。</p></div>
+    <div class="card"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6"/><circle cx="12" cy="16.6" r="1.1" fill="currentColor" stroke="none"/></svg>你沒活出來的</p>
+      <p class="v">失敗、脆弱、沒有用的時候。可是真正的親密只發生在那些時刻，不在你的成就清單上。</p></div>
+    <div class="card wide"><p class="k"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17 19 7"/></svg>「誠實」是什麼意思</p>
+      <p class="v">不是不說謊。是<strong>先對自己承認</strong>：這件事我其實不想做、我其實做不到、我其實需要人。</p></div>
+  </div>
+  <div class="duo">
+    <div><h4><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V6"/><path d="M6.5 11.5 12 6l5.5 5.5"/></svg>健康的 3</h4><p>真的有能力，而且不需要別人一直看著。能講自己的失敗，也能為別人的成功高興。</p></div>
+    <div><h4><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v13"/><path d="M6.5 12.5 12 18l5.5-5.5"/></svg>不健康的 3</h4><p>停不下來，因為停下來就要面對「我是誰」。成績越來越多，人越來越空。</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="label"><span class="ibox"><svg class="ic " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 0 1 13.6-5.7L20 8"/><path d="M20 4.5V8h-3.5"/><path d="M20 12a8 8 0 0 1-13.6 5.7L4 16"/><path d="M4 19.5V16h3.5"/></svg></span><span class="lb">可以怎麼做</span><b>PRACTICE</b></div>
+  <h2>六件反著做的事</h2>
+  <ol class="steps">
+    <li><strong>每天留一段沒有產出的時間。</strong>不學習、不進步、不優化。</li>
+    <li><strong>對一個人講你的失敗。</strong>不加修飾，不附上「但我後來怎麼補救」。</li>
+    <li><strong>交出去一件事，接受 80 分。</strong>這同時在治 3 也在治 1。</li>
+    <li><strong>常問自己：這是我要的，還是這裡的人會鼓掌的？</strong></li>
+    <li><strong>累就說累。</strong>不要撐完才垮。</li>
+    <li><strong>設警報。</strong>當你開始拖延、什麼都不想碰——那是掉到 9，不是你變懶。這時要休息，不是罵自己。</li>
+  </ol>
+</section>
+
+<div class="close">
+  <p>你要練的不是做得更好，<br>是相信沒有成績的你，也算數。</p>
+  <p class="foot">
+    TYPE 3 · SECONDARY 1 · GROWTH 6 · STRESS 9<br>
+    九型人格是自我覺察工具，不是臨床診斷。
+  </p>
+</div>
+
+</div>
+</body>
+</html>
